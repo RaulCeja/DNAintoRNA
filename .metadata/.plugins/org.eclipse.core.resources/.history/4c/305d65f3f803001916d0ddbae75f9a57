@@ -1,0 +1,42 @@
+package DNAtoRNA;
+import java.io.*;
+import java.util.*;
+public class DNA2RNA 
+{
+	private String dna;
+	private StringBuffer rna;
+
+	public String dnaFileReader() throws IOException
+	{
+		File file=new File("data/rosalind_rna.txt");
+		FileReader fr=new FileReader(file);
+		BufferedReader br=new BufferedReader(fr);
+		this.dna=br.readLine();
+		br.close();
+		fr.close();
+		return dna;
+	}
+	public StringBuffer dnaTorna()
+	{
+		StringBuffer nrna=new StringBuffer("");
+		for (int i=0;i<dna.length();i++)
+		{
+			char n=dna.charAt(i);
+			if(n=='T')
+			{
+				nrna.append('U');
+			}
+			else 
+			{
+				nrna.append(n);
+			}
+		}
+		this.rna=nrna;
+		return rna;
+	}
+	public void main(String[] args)
+	{
+		
+		System.out.println(rna);
+	}
+}
